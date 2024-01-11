@@ -16,6 +16,8 @@ private Rigidbody playerRb;
     // Update is called once per frame
     void Update()
     {
+        //pressing these keys will teleport the player to various locations across the game
+        //so you dont have to play the entire game when testing small things
 
         if (Input.GetKeyDown(KeyCode.J)){ //tp to start
             playerRb.transform.position = new Vector3(5, 170, -0.5f);

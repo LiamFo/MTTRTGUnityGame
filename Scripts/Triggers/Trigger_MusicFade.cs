@@ -20,16 +20,19 @@ public class Trigger_MusicFade : MonoBehaviour
     {
         StageMusic = GameObject.FindGameObjectWithTag("GunStage_Music_Trigger").GetComponent<AudioSource>();
 
+    //fade music out over time
         if (fadeInOut == true){
             StageMusic.volume -= fadeOutFactor * Time.deltaTime;
         }
     }
 
+    //if player touches trigger, fade music out
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             fadeInOut = true;
             Debug.Log("Touched music fade trigger");
 
+            //if music volume is 0 or lower, stop music
             if(StageMusic.volume <= 0){
             StageMusic.Stop();
             }

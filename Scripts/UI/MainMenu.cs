@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    //once player presses button, destroy menu elements
     public void DestroyGameObject(){
         Destroy(ObjectToDestroy);
         Destroy(Title);

@@ -21,13 +21,16 @@ public class Trigger_PowerupTut : MonoBehaviour
     {
     }
 
+    //if player touches trigger, explain how powerups work
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
+            //start timer
             StartCoroutine(BounceTutCoroutine("When you have a powerup, you can jump infinitely for a short while"));
             Debug.Log("Trigger touched");
             }
         }
     
+    //activate text
     IEnumerator BounceTutCoroutine(string message, float timeToShow = 10){
         //wait for 5 seconds
         yield return new WaitForSecondsRealtime(0.2f);

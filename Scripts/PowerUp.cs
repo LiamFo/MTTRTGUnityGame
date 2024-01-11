@@ -14,6 +14,7 @@ public class PowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //slowly rotate object
         transform.Rotate(0, 1, 0 * Time.deltaTime);
     }
 

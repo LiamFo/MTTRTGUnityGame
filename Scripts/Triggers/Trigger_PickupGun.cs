@@ -31,12 +31,17 @@ public class Trigger_PickupGun : MonoBehaviour
     {
     }
 
+    //if player touches trigger, make title appear and play music
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
+            //if the audio isnt playing, play it
             if(!AudioCombat.isPlaying){
             AudioCombat.Play();
+            //destroy object
             Destroy(StageGun);
+            //player can now shoot
             PlayerScript.PlayerHasGun = true;
+            //start timer for title
             StartCoroutine(ShowMessageCoroutine("MOVE TO THE RIGHT"));
             }
         }
@@ -49,7 +54,7 @@ public class Trigger_PickupGun : MonoBehaviour
         text.enabled = true;
         text.text = message;
 
-        //wait for 8 seconds
+        //wait for 4.4 seconds
         yield return new WaitForSecondsRealtime(4.4f);
 
         // hide the text

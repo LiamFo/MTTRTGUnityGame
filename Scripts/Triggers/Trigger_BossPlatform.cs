@@ -21,16 +21,19 @@ public class Trigger_BossPlatform : MonoBehaviour
     //test
     void Update()
     {
+
+        //if platform is at Y125 or lower, stop and play stop SFX
         if(BossPlatform.transform.position.y <= 125){
             MovePlatform = false;
             PlatformMoveSFX.Stop();
         }
 
+        //if MovePlatform is True, move platform down at a constant pase
         if(MovePlatform == true){
             BossPlatform.transform.Translate(Vector3.down * Time.deltaTime * 4f);
         }
     }
-
+        //if player touches triggger, start moving the platform and play the moving SFX
         private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             MovePlatform = true;

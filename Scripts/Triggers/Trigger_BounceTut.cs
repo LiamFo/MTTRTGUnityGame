@@ -20,14 +20,17 @@ public class Trigger_BounceTut : MonoBehaviour
     void Update()
     {
     }
-
+    
+    //if player touches trigger, explain how you can jump after touching a bounce pad
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
+            //start counter
             StartCoroutine(BounceTutCoroutine("Press SPACE after bouncing to jump in the air"));
             Debug.Log("Trigger touched");
             }
         }
     
+    //activate text
     IEnumerator BounceTutCoroutine(string message, float timeToShow = 10){
         //wait for 5 seconds
         yield return new WaitForSecondsRealtime(0.2f);

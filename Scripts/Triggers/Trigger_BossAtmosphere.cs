@@ -12,19 +12,19 @@ public class Trigger_BossAtmosphere : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //BossAtmosphere = GameObject.FindGameObjectWithTag("Boss_Atmosphere").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //fade in music over time
         if (fadeInOut == true){
             BossAtmosphere.volume += fadeOutFactor * Time.deltaTime;
         }
     }
 
     void OnTriggerEnter(Collider other){
+        //if player touches trigger, fade in music
         if(other.gameObject.CompareTag("Player")){
             fadeInOut = true;
             BossAtmosphere.Play();

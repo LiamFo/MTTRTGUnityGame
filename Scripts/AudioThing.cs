@@ -18,6 +18,7 @@ public class AudioThing : MonoBehaviour
     {
     }
 
+    //When the player touches the trigger, play the audio if it isnt already playing
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             if(!AudioTest.isPlaying){

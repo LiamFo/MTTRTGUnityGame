@@ -21,13 +21,16 @@ public class Trigger_MoveTut : MonoBehaviour
     {
     }
 
+    //if player touches trigger, explain how to move sideways
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
+            //start timer
             StartCoroutine(MoveTutCoroutine("Press A / D to move"));
             Debug.Log("Trigger touched");
             }
         }
     
+    //activate text
     IEnumerator MoveTutCoroutine(string message, float timeToShow = 10){
         //wait for 5 seconds
         yield return new WaitForSecondsRealtime(1.0f);

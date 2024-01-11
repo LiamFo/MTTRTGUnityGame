@@ -18,19 +18,22 @@ public class PlayerProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //move projectile
         transform.position += transform.forward * ProjectileSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Enemy"){
+            //if projectile touches enemy, destroy itself
             Destroy(this.gameObject);
+            //call EnemyScore in PlayerController script
             GameObject.Find("Player").GetComponent<PlayerController>().EnemyScore();
         }else if(collision.gameObject.tag == "Player"){
-            //do nothing
+            //if projectile touches player, do nothing
         }else if(collision.gameObject.tag == "Projectile"){
-            //do nothing
+            //if projectile touches another projectile, do nothing
         }else{
+            //if projectile touches anything else, destroy itself
             Destroy(this.gameObject);
         }
     }

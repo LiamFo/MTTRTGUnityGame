@@ -22,13 +22,16 @@ public class Trigger_DeathState : MonoBehaviour
     {
     }
 
+        //if player touches trigger, stop music and hide ui
         private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             AudioCombat.Stop();
+            //call HideMenu
             HideMenu();
             }
         }
 
+        //destroy ui text elements
         public void HideMenu(){
         Destroy(Health);
         Destroy(Score);

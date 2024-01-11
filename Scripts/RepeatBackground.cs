@@ -18,6 +18,7 @@ public class RepeatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //scroll texture offset downwards
         offset += Time.deltaTime * ScrollSpeed;
         render.material.mainTextureOffset = new Vector2(0, offset);
 

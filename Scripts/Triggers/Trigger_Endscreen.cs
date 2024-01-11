@@ -21,20 +21,23 @@ public class Trigger_Endscreen : MonoBehaviour
 private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             AtmosphereMusic.Stop();
-            //StartCoroutine(BounceTutCoroutine("The End"));
+            StartCoroutine(BounceTutCoroutine("The End"));
             }
 
         }
     
     IEnumerator BounceTutCoroutine(string message, float timeToShow = 10){
 
+        //wait 1 second and enable text
         yield return new WaitForSecondsRealtime(1.0f);
             text.enabled = true;
             text.text = message;
 
+        //show text
         yield return new WaitForSecondsRealtime(4.0f);
             text.text = "Thank You for Playing!";
 
+        //wait 4 sec and set text to blank
         yield return new WaitForSecondsRealtime(4.0f);
             text.text = " ";
     }

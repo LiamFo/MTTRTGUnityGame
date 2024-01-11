@@ -19,6 +19,7 @@ public class BouncePad : MonoBehaviour
     {
         
     }
+    //When player touches object, apply vertical force to the player launching them up
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             other.GetComponent<Rigidbody>().AddForce(Vector3.up * BounceForce, ForceMode.Impulse);

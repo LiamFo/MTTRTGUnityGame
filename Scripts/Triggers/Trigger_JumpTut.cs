@@ -21,13 +21,16 @@ public class Trigger_JumpTut : MonoBehaviour
     {
     }
 
+    //if player touches trigger, explain how to jump
     private void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
+            //start timer
             StartCoroutine(JumpTutCoroutine("Press space to jump"));
             Debug.Log("Trigger touched");
             }
         }
     
+    //activate text
     IEnumerator JumpTutCoroutine(string message, float timeToShow = 10){
         //wait for 5 seconds
         yield return new WaitForSecondsRealtime(0.7f);

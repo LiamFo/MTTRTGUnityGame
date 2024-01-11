@@ -13,6 +13,7 @@ public class GearSpin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //rotate gear at a constant pase
         transform.Rotate(0, 0, -20 * Time.deltaTime);
     }
 }

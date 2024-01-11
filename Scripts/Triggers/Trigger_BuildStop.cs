@@ -22,17 +22,21 @@ public class Trigger_BuildStop : MonoBehaviour
         StageMusic = GameObject.FindGameObjectWithTag("GunStage").GetComponent<AudioSource>();
         AmbienceMusic = GameObject.FindGameObjectWithTag("Ambience").GetComponent<AudioSource>();
 
+        //fade music out
         if (fadeInOut == true){
             StageMusic.volume -= fadeOutFactor;
             AmbienceMusic.volume -= fadeOutFactor;
         }
     }
 
+
+    //if player touches trigger, fade music out and stop
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Player")){
             fadeInOut = true;
             AmbienceMusic.Stop();
 
+            //if music volume is 0 or lower, stop music
             if(StageMusic.volume <= 0){
             StageMusic.Stop();
             }

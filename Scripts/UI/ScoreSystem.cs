@@ -16,3 +16,5 @@ public class ScoreSystem : MonoBehaviour
         
     }
 }
+
+//i made this file in advance before working on the score system and eventually forgot about it, haha whoops!
